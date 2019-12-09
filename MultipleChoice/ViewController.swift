@@ -43,22 +43,23 @@ class ViewController: UIViewController {
             outputView.text = "Error. Please be sure to enter exactly \(numberOfQuestions) answers."
             return
         }
-        
+        // For loop to find the position of every character in student answers string
+        // if the character in the same position in the teacher answers is the same, correct answers value adds one
         for (position, character) in studentAnswers.enumerated() {
             let index = teacherAnswers.index(teacherAnswers.startIndex, offsetBy: position)
             if character == teacherAnswers[index] {
                 correctAnswers += 1
+            }
+            
         }
-
+        // prints amount of correct answers to the view
+        outputView.text = "The student got \(correctAnswers) questions right."
     }
     
-        outputView.text = "The student got \(correctAnswers) questions right."
-}
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
 }
