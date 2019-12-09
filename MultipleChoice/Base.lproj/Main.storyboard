@@ -75,10 +75,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="correctAnswers" destination="SUD-jJ-nAX" id="F2a-rQ-B01"/>
-                        <outlet property="numberOfQuestions" destination="maP-3V-duu" id="z5c-LB-9iD"/>
                         <outlet property="outputView" destination="UiR-AD-BNP" id="ZGE-fm-W5g"/>
-                        <outlet property="studentAnswers" destination="kPa-sQ-tVt" id="O6Y-z0-eVr"/>
+                        <outlet property="questions" destination="maP-3V-duu" id="VTU-1t-dYS"/>
+                        <outlet property="studentInput" destination="kPa-sQ-tVt" id="NEe-8T-yFj"/>
+                        <outlet property="teacherInput" destination="SUD-jJ-nAX" id="2yQ-XI-DpT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -9,19 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     // Mark: Properties
     // Connected labels and text views to controller using outlets
     @IBOutlet weak var questions: UITextField!
     @IBOutlet weak var studentInput: UITextField!
     @IBOutlet weak var teacherInput: UITextField!
     @IBOutlet weak var outputView: UITextView!
+    var correctAnswers = 0
     
-    // Mark: Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    // Mark: Methods
+    
     // Created action for when check answers button is pressed
     @IBAction func checkAnswers(_ sender: Any) {
         // Guard statement to check for a number in number of questions
@@ -37,18 +39,26 @@ class ViewController: UIViewController {
         }
         
         // Guard statement to check if there is text and it matches number of questions in teacher answers
-          guard let teacherAnswers = teacherInput.text, teacherAnswers.count == numberOfQuestions else {
-              outputView.text = "Error. Please be sure to enter exactly \(numberOfQuestions) answers."
-              return
-          }
-        
-        
-
+        guard let teacherAnswers = teacherInput.text, teacherAnswers.count == numberOfQuestions else {
+            outputView.text = "Error. Please be sure to enter exactly \(numberOfQuestions) answers."
+            return
         }
         
-        
-        
+        for (position, character) in studentAnswers.enumerated() {
+            let index = teacherAnswers.index(teacherAnswers.startIndex, offsetBy: position)
+            if character == teacherAnswers[index] {
+                correctAnswers += 1
+        }
+
     }
+    
+        outputView.text = "The student got \(correctAnswers) questions right."
+}
 
 
 
+
+
+
+
+}
