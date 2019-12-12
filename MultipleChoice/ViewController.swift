@@ -48,10 +48,10 @@ class ViewController: UIViewController {
         }
 
         // For loop to find the position of every character in student answers string
-        // if the character in the same position in the teacher answers is the same, correct answers value adds one
         for (position, character) in studentAnswers.enumerated() {
-            
+            // Find the position of the teacher answers (to match the position of student answers)
             let index = teacherAnswers.index(teacherAnswers.startIndex, offsetBy: position)
+            // if the character in the same position in the teacher answers is the same, correct answers value adds one
             if character == teacherAnswers[index] {
                 correctAnswers += 1
             }
