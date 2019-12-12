@@ -28,8 +28,7 @@ class ViewController: UIViewController {
     @IBAction func checkAnswers(_ sender: Any) {
         // Clear the output view every time the button is clicked
         outputView.text = ""
-        // Create a constant containing ABCDE (only valid input for second and third input field)
-        let answers = "ABCDE"
+        correctAnswers = 0
         // Guard statement to check for a number in number of questions
         guard let questionsString = questions.text, let numberOfQuestions = Int(questionsString) else {
             outputView.text = "Error. Please enter an integer value greater than 0."
@@ -47,15 +46,15 @@ class ViewController: UIViewController {
             outputView.text = "Error. Please be sure to enter exactly \(numberOfQuestions) answers."
             return
         }
-        
+
         // For loop to find the position of every character in student answers string
         // if the character in the same position in the teacher answers is the same, correct answers value adds one
         for (position, character) in studentAnswers.enumerated() {
+            
             let index = teacherAnswers.index(teacherAnswers.startIndex, offsetBy: position)
-            if character == teacherAnswers[index] && answers.contains(character) {
+            if character == teacherAnswers[index] {
                 correctAnswers += 1
             }
-            
         }
         // prints amount of correct answers to the view
         outputView.text = "The student got \(correctAnswers) questions right."
